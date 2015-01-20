@@ -10,22 +10,18 @@ import Foundation
 
 class Article{
     
-    var by: String?
-    var id: String?
-    var kids: String?
-    var score: String?
-    var time: String?
-    var title: String?
-    var type: String?
-    var url: String?
+    var by: String
+    var id: String
+    var score: Int
+    var title: String
+    var type: String
+    var url: String
     
     
-    init(by: String?, id: String?, kids: String?, score: String?, time: String? ,title: String? ,type: String?, url: String?){
+    init(by: String, id: String, score: Int, title: String ,type: String, url: String){
         self.by = by
         self.id = id
-        self.kids = kids
         self.score = score
-        self.time = time
         self.title = title
         self.type = type
         self.url = url    

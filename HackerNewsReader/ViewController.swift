@@ -12,8 +12,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet var tableViewStories: UITableView!
     var items:[String] = [String]()
-    var appReady = false
     var topTitles: [String] = [String]()
+    var topArticles: [Article] = [Article]()
     
     
     override func viewDidLoad() {
@@ -24,15 +24,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         while(self.items.count != 100){}    //WAIT FOR FETCHING IDS
         
         //GET TOP TITLES
-        for x in self.items{
-            getSelectionJSON(x)
+        for id in self.items{
+            getSelectionJSON(id)
         }
-        
-        while(self.topTitles.count != 100){}    //WAITING FOR FETCHING TOP TITLES
-        
-        
-        
-        self.tableViewStories.registerClass(CustomReaderCell.self, forCellReuseIdentifier: "cell")
+        while(self.topArticles.count != 99){}    //WAITING FOR FETCHING TOP TITLES
+        self.topArticles.sort{$0.score > $1.score}
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,18 +38,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return self.topTitles.count-10
+        return self.topArticles.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        while(self.topTitles.count != 100){}
-        let cell: CustomReaderCell = self.tableViewStories.dequeueReusableCellWithIdentifier("cell") as CustomReaderCell
-//        cell.textLabel?.text = self.items[indexPath.row]
-//        cell.textLabel?.text = self.topTitles[indexPath.row]
-        
-        let title = self.topTitles[indexPath.row]
-//        cell.setCustomCell(title)
-        cell.textLabel?.text="AAA"
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath : NSIndexPath) -> UITableViewCell{
+        while(self.topArticles.count != 99){}
+        let cell: CustomReaderCell = tableView.dequeueReusableCellWithIdentifier("Cell") as CustomReaderCell
+        let article = self.topArticles[indexPath.row]
+        cell.setCustomCell(article.title, score: String(article.score), author: article.by, url: article.url)
+
 
 
         return cell
@@ -61,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> (){
-        println("You selected cell #\(indexPath.row)!")
+        println("You selected cell #\(topArticles[indexPath.row].title)!")
         
     }
     
@@ -88,13 +82,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             var err:NSError?
             var obj: AnyObject? = NSJSONSerialization.JSONObjectWithData(articleData.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, options: nil, error: &err)
             if let jsonObject = obj as? NSDictionary{
+                
+                
+                
+                //Create Article Object
                 if let title = jsonObject["title"] as? NSString{
-                self.topTitles.append(title)
-                println("ADDED \(title)")
-
+                    if let author = jsonObject["by"] as? NSString{
+                        if let score = jsonObject["score"] as? Int{
+                            if let type = jsonObject["type"] as? NSString{
+                                if let url = jsonObject["url"] as? NSString{
+                                    let article: Article = Article(by: author, id: selectionID, score: score, title: title, type: type, url: url)
+                                    self.topArticles.append(article)
+//                                    println("ADDED \(article.title)")
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
         }
         task.resume()
     }
