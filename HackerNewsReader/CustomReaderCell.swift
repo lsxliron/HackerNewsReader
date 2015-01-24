@@ -14,7 +14,7 @@ class CustomReaderCell: UITableViewCell {
     @IBOutlet weak var urlLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    
+    @IBOutlet weak var idLabel: UILabel!
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -22,11 +22,12 @@ class CustomReaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCustomCell(title: String, score: String, author: String, url: String){
+    func setCustomCell(title: String, id: String, score: String, author: String, url: String){
         self.titleLabel.text = title
         self.scoreLabel.text = "Score: \(score)"
         self.urlLabel.text = url
         self.authorLabel.text = "By: \(author)"
+        self.idLabel.text = id
     }
     
 

@@ -4,16 +4,48 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
+        <!--Categories-->
+        <scene sceneID="nxf-8y-16w">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8f-I6-Kta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Categories" id="TW8-fS-yy0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tfn-pP-GNx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="180" y="1163"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HackerNewsReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="60C-DK-G0a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <items>
+                                    <barButtonItem title="Cats" id="D08-5n-ltb">
+                                        <connections>
+                                            <segue destination="TW8-fS-yy0" kind="modal" id="TlV-zM-IVb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="194" style="plain" systemItem="fixedSpace" id="DUj-bT-jth"/>
+                                    <barButtonItem title="Settings" id="dIC-ZZ-yMF">
+                                        <connections>
+                                            <segue destination="bl4-Dx-zSP" kind="modal" id="4ih-9X-JMw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="22" sectionFooterHeight="22" id="ls5-DB-dD3">
-                                <rect key="frame" x="0.0" y="34" width="320" height="500"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -52,13 +84,22 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="idLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9YC-oT-ddX">
+                                                    <rect key="frame" x="229" y="50" width="56" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorLabel" destination="jhy-aL-bZ9" id="dyd-ul-Qy9"/>
+                                            <outlet property="idLabel" destination="9YC-oT-ddX" id="XUy-pP-UIP"/>
                                             <outlet property="scoreLabel" destination="OEG-BR-ndu" id="a7t-fV-ZBj"/>
                                             <outlet property="titleLabel" destination="bZc-tx-zrI" id="qWY-Xi-jVP"/>
                                             <outlet property="urlLabel" destination="7ro-ia-f1n" id="VGO-uX-pm9"/>
+                                            <segue destination="sZW-I9-gys" kind="modal" identifier="viewArticle" id="DpP-IG-FTH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,9 +112,69 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="406"/>
+            <point key="canvasLocation" x="180" y="316"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="4DO-R5-xlT">
+            <objects>
+                <viewController title="Settings" id="bl4-Dx-zSP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3EC-zw-Iob">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYH-TW-sFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645" y="1110"/>
+        </scene>
+        <!--Article View Controlelr-->
+        <scene sceneID="BFL-y1-UIg">
+            <objects>
+                <viewController id="sZW-I9-gys" customClass="ArticleViewControlelr" customModule="HackerNewsReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dHW-5M-fv5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="JuW-fc-Tgf">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Y60-8C-cy0">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="&lt;" id="6aa-XC-2VG">
+                                        <connections>
+                                            <action selector="backToolbarButton:" destination="sZW-I9-gys" id="AhJ-S8-WzM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="27" style="plain" systemItem="fixedSpace" id="ghc-Wh-4Le"/>
+                                    <barButtonItem title="&gt;" id="Wx6-YW-vbB">
+                                        <connections>
+                                            <action selector="forwardToolbarButton:" destination="sZW-I9-gys" id="hof-yd-vTe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="27" style="plain" systemItem="fixedSpace" id="6bl-7t-uOg"/>
+                                    <barButtonItem title="Close" id="dhD-Aa-NEK">
+                                        <connections>
+                                            <action selector="closeWebView:" destination="sZW-I9-gys" id="SmM-a2-dC0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="articleWebView" destination="JuW-fc-Tgf" id="7ui-CM-feR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJ0-8H-Tl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="362"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20196E4F1A736E4E00027CF3 /* ArticleViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20196E4E1A736E4E00027CF3 /* ArticleViewControlelr.swift */; };
+		20196E541A7386EB00027CF3 /* SavedArticles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20196E521A7386EB00027CF3 /* SavedArticles.xcdatamodeld */; };
 		2D6233771A6C47E50041F867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6233761A6C47E50041F867 /* AppDelegate.swift */; };
 		2D6233791A6C47E50041F867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6233781A6C47E50041F867 /* ViewController.swift */; };
 		2D62337C1A6C47E50041F867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D62337A1A6C47E50041F867 /* Main.storyboard */; };
@@ -28,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20196E4E1A736E4E00027CF3 /* ArticleViewControlelr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewControlelr.swift; sourceTree = "<group>"; };
+		20196E501A73865700027CF3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		20196E531A7386EB00027CF3 /* SavedArticles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedArticles.xcdatamodel; sourceTree = "<group>"; };
 		2D6233711A6C47E50041F867 /* HackerNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6233751A6C47E50041F867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D6233761A6C47E50041F867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		2D6233681A6C47E50041F867 = {
 			isa = PBXGroup;
 			children = (
+				20196E501A73865700027CF3 /* CoreData.framework */,
 				2D6233731A6C47E50041F867 /* HackerNewsReader */,
 				2D6233891A6C47E50041F867 /* HackerNewsReaderTests */,
 				2D6233721A6C47E50041F867 /* Products */,
@@ -89,6 +95,8 @@
 				2D62337F1A6C47E50041F867 /* LaunchScreen.xib */,
 				2D6233741A6C47E50041F867 /* Supporting Files */,
 				2D6233961A6CA2EE0041F867 /* Article.swift */,
+				20196E4E1A736E4E00027CF3 /* ArticleViewControlelr.swift */,
+				20196E521A7386EB00027CF3 /* SavedArticles.xcdatamodeld */,
 			);
 			path = HackerNewsReader;
 			sourceTree = "<group>";
@@ -218,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20196E541A7386EB00027CF3 /* SavedArticles.xcdatamodeld in Sources */,
 				2D6233791A6C47E50041F867 /* ViewController.swift in Sources */,
+				20196E4F1A736E4E00027CF3 /* ArticleViewControlelr.swift in Sources */,
 				2D6233771A6C47E50041F867 /* AppDelegate.swift in Sources */,
 				2D6233971A6CA2EE0041F867 /* Article.swift in Sources */,
 				2DCA24F61A6CE7DB0036D079 /* CustomReaderCell.swift in Sources */,
@@ -427,6 +437,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		20196E521A7386EB00027CF3 /* SavedArticles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20196E531A7386EB00027CF3 /* SavedArticles.xcdatamodel */,
+			);
+			currentVersion = 20196E531A7386EB00027CF3 /* SavedArticles.xcdatamodel */;
+			path = SavedArticles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2D6233691A6C47E50041F867 /* Project object */;
 }
